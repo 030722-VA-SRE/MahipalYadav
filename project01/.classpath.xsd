@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="classpath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="classpathentry" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element name="attributes" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="attribute" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="ignore_optional_problems" />
+                              <xs:enumeration value="m2e-apt" />
+                              <xs:enumeration value="maven.pomderived" />
+                              <xs:enumeration value="optional" />
+                              <xs:enumeration value="test" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="value" type="xs:boolean" use="required" fixed="true" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="kind" use="required" />
+            <xs:attribute name="output" />
+            <xs:attribute name="path" use="required" />
+            <xs:attribute name="excluding" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
