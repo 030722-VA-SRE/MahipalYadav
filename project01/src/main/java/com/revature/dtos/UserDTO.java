@@ -26,14 +26,16 @@ public class UserDTO {
 		super();
 		this.id = u.getId();
 		this.username = u.getUsername();
-		
+		this.role = u.getRoles();
 	
 	}
 
-	
+
+
 	public int getId() {
 		return id;
 	}
+
 
 
 	public void setId(int id) {
@@ -41,9 +43,11 @@ public class UserDTO {
 	}
 
 
+
 	public String getUsername() {
 		return username;
 	}
+
 
 
 	public void setUsername(String username) {
@@ -51,9 +55,11 @@ public class UserDTO {
 	}
 
 
+
 	public Role getRole() {
 		return role;
 	}
+
 
 
 	public void setRole(Role role) {
@@ -61,10 +67,12 @@ public class UserDTO {
 	}
 
 
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, role, username);
 	}
+
 
 
 	@Override
@@ -80,10 +88,15 @@ public class UserDTO {
 	}
 
 
+
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", username=" + username + ", role=" + role + "]";
 	}
+
+
+
+
 	
 	
 

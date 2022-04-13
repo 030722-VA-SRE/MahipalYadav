@@ -1,7 +1,5 @@
 package com.revature.controllers;
 
-
-
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,32 +23,32 @@ import com.revature.dtos.UserDTO;
 import com.revature.exceptions.UserAlreadyExistException;
 import com.revature.models.Role;
 import com.revature.models.User;
-import com.revature.services.TestUserService;
+import com.revature.services.UserService;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
  
-	private TestUserService us;
+	private UserService us;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
 
 	
 	@Autowired
-	public UserController(TestUserService us) {
+	public UserController(UserService us) {
 		super();
 		this.us = us;
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<User>> getAllUsers (@RequestParam(name = "role", required = false) String role) {
+	public ResponseEntity<List<User>> getUsers (@RequestParam(name = "role", required = false) String role) {
 		
 		if(role != null) {
 			return new ResponseEntity<>(us.getUsersByRole(Role.valueOf(role)), HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(us.getAllUsers(), HttpStatus.OK);
+		return new ResponseEntity<>(us.getUsers(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")

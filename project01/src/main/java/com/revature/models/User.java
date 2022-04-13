@@ -34,13 +34,15 @@ public class User {
 		super();
 	}
 	
-	public User(int id, String username, String password, Role role) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.role = Role.EMPLOYEE;
-	}
+//	public User(int id, String username, String password, Role role) {
+//		super();
+//		this.id = id;
+//		this.username = username;
+//		this.password = password;
+//		this.role = role;
+//	}
+
+
 
 	public int getId() {
 		return id;
@@ -65,7 +67,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public Role getRoles() {
+		return role;
+	}
 
+	public void setRoles(Role role) {
+		this.role = role;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, password, role, username);
@@ -88,6 +96,8 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
 	}
+
+	
 
 	
 }

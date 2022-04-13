@@ -18,10 +18,8 @@ public class Storemenu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	@Column(nullable = false)
 	private String itemname;
-	
 	@Column(nullable = false)
 	private double amount;
 	
@@ -35,14 +33,13 @@ public class Storemenu {
 
 	}
 	
-
-	public Storemenu(int id, String itemname, double amount, User owner) {
-		super();
-		this.id = id;
-		this.itemname = itemname;
-		this.amount = amount;
-		this.owner = owner;
-	}
+//	public Storemenu(int id, String itemname, double amount, User owner) {
+//		super();
+//		this.id = id;
+//		this.itemname = itemname;
+//		this.amount = amount;
+//		this.owner = owner;
+//	}
 
 
 
@@ -101,5 +98,7 @@ public class Storemenu {
 		return "Storemenu [id=" + id + ", itemname=" + itemname + ", amount=" + amount + ", storewoner=" + owner
 				+ "]";
 	}
+
+
 
 }

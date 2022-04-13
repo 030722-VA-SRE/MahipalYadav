@@ -34,13 +34,13 @@ public class TestUserService {
 	public static void set() {
 		uRep = mock(UserRepository.class); 
 		uSer = new UserService(uRep); 
-		u1 = new User(1, "p", "p", role);
+		u1 = new User();
 	}
 	
 	@Test 
 	public void getAllUserTest() {
 		when(uRep.findAll()).thenReturn(users);
-		Assertions.assertEquals(users, uSer.getAllUsers());
+		Assertions.assertEquals(users, uSer.getUsers());
 	}
 	
 	@Test 

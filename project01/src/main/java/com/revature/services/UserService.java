@@ -32,14 +32,9 @@ public class UserService {
 		this.ur = ur;
 	}
 	
-	public List<UserDTO> getAllUsers(){
-		List<User> users = ur.findAll();
-
-		List<UserDTO> uDTO = users.stream().map(UserDTO::new).collect(Collectors.toList());
-
-		return uDTO;
-		
-	}//end getAll
+	public List<User> getUsers(){
+		return ur.findAll();
+	}
 	
 	
 	public UserDTO getUserById(int id) throws UserNotFoundException{

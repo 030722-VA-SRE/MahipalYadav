@@ -16,15 +16,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.revature.dtos.StoremenuDTO;
-import com.revature.dtos.UserDTO;
+
 import com.revature.exceptions.StoremenuAlreadyExistException;
-import com.revature.exceptions.UserAlreadyExistException;
+
 import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.Storemenu;
-import com.revature.models.User;
+
 import com.revature.repositories.StoremenuRepository;
-import com.revature.repositories.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
 public class TestStoremenuService {

@@ -1,9 +1,11 @@
 package com.revature.controllers;
 
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dtos.UserDTO;
-
+import com.revature.exceptions.AuthenticationException;
 import com.revature.services.AuthService;
 
 @RestController
@@ -23,14 +25,13 @@ public class Authcontroller {
 	
 	@Autowired
 	private AuthService as;
-	private static final Logger LOG = LoggerFactory.getLogger(Authcontroller.class);
+	private static final Logger log = LoggerFactory.getLogger(Authcontroller.class);
 	
 	@Autowired
 	public Authcontroller(AuthService as) {
 		super();
 		this.as = as;
 	}
-	
 	
 	@PostMapping("/login")
 	public ResponseEntity<UserDTO> login(@RequestParam("username")String username, @RequestParam("password")String password){
@@ -48,20 +49,10 @@ public class Authcontroller {
 		
 		// set tokenName, value
 		hh.set("Authorization", token);
-		 LOG.info("User succesfully logged in: id" + principal.getId()+ " name: "+ principal.getUsername());
+		 log.info("User succesfully logged in: id" + principal.getId()+ " name: "+ principal.getUsername());
 		
 		return new ResponseEntity<>(principal, hh, HttpStatus.ACCEPTED);
 	}
 	
-//	@PostMapping("/register")
-//	public ResponseEntity<String> register(@RequestParam(name="username")String username, @RequestParam(name="password")String password){
-//		MDC.put("requestId", UUID.randomUUID().toString());
-//		String token = as.register(new User(username,password));
-//		
-//		HttpHeaders hh = new HttpHeaders();
-//		hh.set("Authorization", token);
-//		
-//		return new ResponseEntity<>("Registration successful.",hh,HttpStatus.OK);
-//	}
 	
 }
